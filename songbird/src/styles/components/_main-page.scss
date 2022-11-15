@@ -16,35 +16,49 @@
   font-weight: 400;
 }
 .main {
-  padding: 75px 30px;
-  margin: 60px auto 0 auto;
-  max-width: 600px;
-  min-height: 700px;
-  border-radius: 20px;
-  border: 2px solid rgba(255, 204, 2, 0.798);
-  background-color: rgba(138, 137, 137, 0.479);
+  @extend %container;
+  margin-top: 50px;
 
-  &__container {
-    @extend %container;
+  &__thumb {
+    margin: 0 auto;
+    padding: 75px 30px;
+
+    max-width: 600px;
+    min-height: 600px;
+
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 100px;
+    gap: 90px;
+    border-radius: 20px;
+
+    border: 2px solid rgba(255, 204, 2, 0.798);
+    background-color: rgba(138, 137, 137, 0.479);
+    @media (max-width: 768px) {
+      gap: 50px;
+    }
   }
+
   &__title {
     font-size: 50px;
     text-shadow: 6px 5px 6px rgba(42, 39, 59, 1);
   }
+
   &__desc {
     font-size: 30px;
     text-shadow: 6px 5px 6px rgba(42, 39, 59, 1);
   }
+
   &__btn-thumb {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 35px;
   }
+
   &__button {
     @extend %button;
+    width: 100%;
+    max-width: 210px;
   }
 }
