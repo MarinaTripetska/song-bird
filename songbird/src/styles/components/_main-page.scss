@@ -7,4 +7,44 @@
   background-repeat: no-repeat;
   background-position: right, center;
   background-size: contain;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+}
+.main {
+  padding: 75px 30px;
+  margin: 60px auto 0 auto;
+  max-width: 600px;
+  min-height: 700px;
+  border-radius: 20px;
+  border: 2px solid rgba(255, 204, 2, 0.798);
+  background-color: rgba(138, 137, 137, 0.479);
+
+  &__container {
+    @extend %container;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+  }
+  &__title {
+    font-size: 50px;
+    text-shadow: 6px 5px 6px rgba(42, 39, 59, 1);
+  }
+  &__desc {
+    font-size: 30px;
+    text-shadow: 6px 5px 6px rgba(42, 39, 59, 1);
+  }
+  &__btn-thumb {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+  }
+  &__button {
+    @extend %button;
+  }
 }
