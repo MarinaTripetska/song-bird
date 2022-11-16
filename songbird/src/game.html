@@ -1,14 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1 class="title">Game</h1>
-  <a href="index.html">Main page</a>
-  <a href="results.html">Results</a>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="shortcut icon"
+      type="image/ico"
+      href="./assets/images/bird.ico"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Caveat&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="body">
+    <header class="header">
+      <h1 class="header__title">SongBird</h1>
+      <p class="header__score">Score: <span>0</span></p>
+    </header>
+    <main>
+      <div class="categories">
+        <ul class="categories__list">
+          <li class="categories__item" data-active="true">arm-up</li>
+          <li class="categories__item">passerines</li>
+          <li class="categories__item">forest birds</li>
+          <li class="categories__item">songbirds</li>
+          <li class="categories__item">predator birds</li>
+          <li class="categories__item">sea birds</li>
+        </ul>
+      </div>
+
+      <div class="quiz">
+        <div class="quiz__img-thumb">
+          <img
+            width="200"
+            src="./assets/images/bird-question.png"
+            alt="some bird"
+          />
+        </div>
+
+        <div>
+          <h2>******</h2>
+          <!-- <audio src=""></audio> -->
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <form>
+            <label> <input type="radio" name="option" value="" />option 1</label
+            ><br />
+            <label>
+              <input type="radio" name="option" value="" />option 2</label
+            >
+            <br />
+            <label>
+              <input type="radio" name="option" value="" />option 3</label
+            >
+            <br />
+            <label>
+              <input type="radio" name="option" value="" />option 4</label
+            >
+            <br />
+            <label>
+              <input type="radio" name="option" value="" />option 5</label
+            >
+            <br />
+            <label>
+              <input type="radio" name="option" value="" />option 6</label
+            >
+          </form>
+        </div>
+
+        <div class="answear">
+          <p>Послушайте плеер. Выберите птицу из списка</p>
+        </div>
+      </div>
+
+      <button type="button">Next Level</button>
+    </main>
+    <a href="index.html">Main page</a>
+    <a href="results.html">Results</a>
+  </body>
 </html>

@@ -1,0 +1,77 @@
+.body {
+  color: white;
+  background: rgb(113, 109, 235);
+  background: url("../assets/images/bird-3.png"),
+    linear-gradient(339deg, rgba(113, 109, 235, 1) 0%, rgba(0, 0, 0, 1) 100%);
+
+  background-repeat: no-repeat;
+  background-position: 0 0, center;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+}
+
+.header {
+  @extend %container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 60px;
+    color: rgb(141, 46, 46);
+    text-shadow: 4px 4px 6px rgba(255, 255, 255, 1);
+  }
+
+  &__score {
+    font-size: 35px;
+  }
+}
+
+.categories {
+  @extend %container;
+  margin-bottom: 35px;
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 5px;
+
+    font-family: "Anybody", cursive;
+    font-size: 20px;
+  }
+
+  &__item {
+    padding: 10px;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: rgba(129, 48, 48, 0.449);
+
+    &[data-active="true"] {
+      background-color: rgba(129, 48, 48, 0.779);
+    }
+  }
+}
+
+.quiz {
+  @extend %container;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(129, 48, 48, 0.449);
+  border-radius: 10px;
+
+  &__img-thumb {
+    padding: 5px;
+    background-color: rgba(129, 48, 48, 0.779);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+}
