@@ -24,8 +24,8 @@
 
   &__title {
     font-size: 60px;
-    color: rgb(141, 46, 46);
-    text-shadow: 4px 4px 6px rgba(255, 255, 255, 1);
+    color: $red;
+    text-shadow: 4px 4px 6px $white-shadow;
   }
 
   &__score {
@@ -36,11 +36,11 @@
 .categories {
   @extend %container;
   margin-bottom: 35px;
+
   &__list {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: nowrap;
     gap: 5px;
 
     font-family: "Anybody", cursive;
@@ -52,10 +52,10 @@
     min-width: 200px;
     text-align: center;
     border-radius: 5px;
-    background-color: rgba(129, 48, 48, 0.449);
+    background-color: $transparent-red;
 
     &[data-active="true"] {
-      background-color: rgba(129, 48, 48, 0.779);
+      background-color: $dark-red;
     }
   }
 }
@@ -63,15 +63,30 @@
 .quiz {
   @extend %container;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 50px;
+  align-items: center;
   padding: 20px;
-  background-color: rgba(129, 48, 48, 0.449);
+  background-color: $transparent-red;
   border-radius: 10px;
 
   &__img-thumb {
     padding: 5px;
-    background-color: rgba(129, 48, 48, 0.779);
+    background-color: $dark-red;
     border-radius: 10px;
     overflow: hidden;
+  }
+
+  &__question-thumb {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  &__question-name {
+  }
+
+  &__audio-player {
   }
 }
