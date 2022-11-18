@@ -42,8 +42,12 @@ function chooseBird(e, incognitoBird, birds) {
   // TODO: delete previous audio
 
   if (incognitoBird.name === chooseBirdName) {
+    const winAudio = new Audio("./assets/audio/smart.mp3");
+    winAudio.play();
     // TODO:  show name on top, add score, add sound, add animation(green color)
   } else {
+    const winAudio = new Audio("./assets/audio/click.mp3");
+    winAudio.play();
     // TODO: add sound, add animation (red color)
   }
 }
