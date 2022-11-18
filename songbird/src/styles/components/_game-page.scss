@@ -88,12 +88,6 @@
     width: 100%;
     gap: 15px;
   }
-
-  &__question-name {
-  }
-
-  &__audio-player {
-  }
 }
 
 .answer {
@@ -105,13 +99,10 @@
 
   &__options,
   &__description {
+    font-family: Anybody, cursive;
     padding: 15px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.308);
     background-color: $transparent-red;
   }
-
-  // &__options {
-  //   font-family: Anybody, cursive;
-  // }
 }

@@ -1,0 +1,15 @@
+.description {
+  &__info {
+    padding-top: 50px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+    &::-moz-selection {
+      background: $dark-red;
+    }
+
+    &::selection {
+      background: $dark-red;
+    }
+  }
+}

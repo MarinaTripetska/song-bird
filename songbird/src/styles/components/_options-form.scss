@@ -47,6 +47,7 @@
       position: relative;
       padding-left: 28px;
     }
+
     &:checked + .options__label:before,
     &:not(:checked) + .options__label:before {
       content: "";
@@ -59,6 +60,7 @@
       border-radius: 50%;
       background: $white;
     }
+
     &:checked + .options__label:after,
     &:not(:checked) + .options__label:after {
       content: "";
@@ -72,11 +74,13 @@
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
     }
+
     &:not(:checked) + .options__label:after {
       opacity: 0;
       -webkit-transform: scale(0);
       transform: scale(0);
     }
+
     &:checked + .options__label:after {
       opacity: 1;
       -webkit-transform: scale(1);
