@@ -1,0 +1,86 @@
+.options {
+  font-family: Anybody, cursive;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__option {
+    width: 100%;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.308);
+    transition: background-color 200ms ease-in;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.234);
+    }
+  }
+
+  &__label {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    cursor: pointer;
+
+    &::-moz-selection {
+      background: $dark-red;
+    }
+
+    &::selection {
+      background: $dark-red;
+    }
+  }
+
+  &__input {
+    position: absolute;
+    left: -100px;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+    user-select: none;
+
+    &:checked + .options__label,
+    &:not(:checked) + .options__label {
+      position: relative;
+      padding-left: 28px;
+    }
+    &:checked + .options__label:before,
+    &:not(:checked) + .options__label:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #ddd;
+      border-radius: 50%;
+      background: $white;
+    }
+    &:checked + .options__label:after,
+    &:not(:checked) + .options__label:after {
+      content: "";
+      width: 12px;
+      height: 12px;
+      background: $dark-red;
+      position: absolute;
+      top: 11px;
+      left: 3px;
+      border-radius: 50%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    }
+    &:not(:checked) + .options__label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    }
+    &:checked + .options__label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  }
+}

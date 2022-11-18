@@ -39,7 +39,7 @@
 
   &__list {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 5px;
 
@@ -48,9 +48,12 @@
   }
 
   &__item {
+    flex-grow: 1;
     padding: 10px;
-    min-width: 200px;
+    width: 100%;
+    max-width: 200px;
     text-align: center;
+    white-space: nowrap;
     border-radius: 5px;
     background-color: $transparent-red;
 
@@ -62,13 +65,15 @@
 
 .quiz {
   @extend %container;
-  display: flex;
-  justify-content: flex-start;
-  gap: 50px;
-  align-items: center;
-  padding: 20px;
-  background-color: $transparent-red;
-  border-radius: 10px;
+  &__thumb {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+    align-items: center;
+    padding: 20px;
+    background-color: $transparent-red;
+    border-radius: 10px;
+  }
 
   &__img-thumb {
     padding: 5px;
@@ -89,4 +94,24 @@
 
   &__audio-player {
   }
+}
+
+.answer {
+  margin-top: 45px;
+  @extend %container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  &__options,
+  &__description {
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.308);
+    background-color: $transparent-red;
+  }
+
+  // &__options {
+  //   font-family: Anybody, cursive;
+  // }
 }

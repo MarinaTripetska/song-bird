@@ -19,7 +19,7 @@ function showNewQuestion(categoryCount, dataBase) {
 
   optionsEl.forEach((el, i) => {
     el.setAttribute("value", birds[i].name);
-    el.parentElement.append(birds[i].name);
+    el.nextElementSibling.append(birds[i].name);
     el.addEventListener("click", (e) => chooseBird(e, incognitoBird));
   });
 }
@@ -27,6 +27,7 @@ function showNewQuestion(categoryCount, dataBase) {
 function chooseBird(e, incognitoBird) {
   const chooseBird = e.target.value;
   if (incognitoBird.name === chooseBird) {
+    console.log(chooseBird);
     // TODO: show info about bird, show name on top, add score, add sound, add animation(green color)
   } else {
     // TODO: show info about bird, add sound, add animation (red color)
