@@ -79,6 +79,7 @@ function createQuestionPlayer(audioPlayer, audioSrc, blockBEM) {
       ).padStart(2, 0)}`;
     }
   }
+  return audio;
 }
 
 export default createQuestionPlayer;
