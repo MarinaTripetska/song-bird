@@ -95,12 +95,14 @@
   @extend %container;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: start;
   gap: 20px;
 
   &__options,
   &__description {
+    min-height: 350px;
     font-family: Anybody, cursive;
-    padding: 15px;
+    padding: 30px 15px;
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.308);
     background-color: $transparent-red;

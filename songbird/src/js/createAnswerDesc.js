@@ -1,11 +1,13 @@
 function createAnswerDesc(bird) {
   return `
-          <div>
-            <div>
-              <img src="${bird.image}" alt="bird photo">
-              <div>
-                <h3>${bird.name}</h3>
-                <p>${bird.species}</p>
+            <div class="description__thumb">
+              <div class="description__img-box">
+                <img class="description__img" src="${bird.image}" alt="bird photo">
+              </div>
+
+              <div class="description__header">
+                <h3 class="description__title">${bird.name}</h3>
+                <p class="description__species">${bird.species}</p>
 
                 <div class="answer-audio audio-player">
                   <div class="audio-player__timeline">
@@ -42,12 +44,13 @@ function createAnswerDesc(bird) {
                     </div>
                   </div>
                 </div>
-                </div>
               </div>
-              <p>
+            </div>
+              <p class="description__desc">
                 ${bird.description}
               </p>
-          </div>`;
+
+          `;
 }
 
 export default createAnswerDesc;
