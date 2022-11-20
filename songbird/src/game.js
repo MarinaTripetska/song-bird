@@ -32,7 +32,7 @@ function showNewQuestion(categoryCount, dataBase) {
 
 function chooseBird(e, incognitoBird, birds) {
   // let scoreInSection = birds.length;
-  // console.log(scoreInSection);
+
   const chooseBirdName = e.target.value;
   const chooseBird = birds.find((bird) => bird.name === chooseBirdName);
 
@@ -40,24 +40,28 @@ function chooseBird(e, incognitoBird, birds) {
   descThumb.innerHTML = htmlTemplate;
 
   const smallAudioEl = descThumb.querySelector(".answer-audio");
-  let audio = createQuestionPlayer(
-    smallAudioEl,
-    chooseBird.audio,
-    "audio-player"
-  );
+  createQuestionPlayer(smallAudioEl, chooseBird.audio, "audio-player");
   // TODO: delete previous audio
 
   if (incognitoBird.name === chooseBirdName) {
+    //add audio:
     const winAudio = new Audio("./assets/audio/smart.mp3");
     winAudio.play();
+    //show img and name in question section:
     birdNameEl.textContent = chooseBirdName;
     birdImgEl.src = chooseBird.image;
-
-    // TODO: add score, add animation(green color)
+    //add green color:
+    e.target.nextElementSibling.classList.add("correct");
+    // todo: don't change color, but can see descr:
+    optionsEl.forEach((el) => {
+      el.setAttribute("disabled", "");
+    });
   } else {
+    //add audio:
     const winAudio = new Audio("./assets/audio/click.mp3");
     winAudio.play();
-    // TODO: , add animation (red color)
+    //add red color:
+    e.target.nextElementSibling.classList.add("inCorrect");
   }
 }
 

@@ -26,11 +26,11 @@
     cursor: pointer;
 
     &::-moz-selection {
-      background: $dark-red;
+      background-color: $dark-red;
     }
 
     &::selection {
-      background: $dark-red;
+      background-color: $dark-red;
     }
   }
 
@@ -58,7 +58,7 @@
       height: 18px;
       border: 1px solid #ddd;
       border-radius: 50%;
-      background: $white;
+      background-color: $white;
     }
 
     &:checked + .options__label:after,
@@ -66,7 +66,7 @@
       content: "";
       width: 12px;
       height: 12px;
-      background: $dark-red;
+      background-color: $dark-red;
       position: absolute;
       top: 16px;
       left: 3px;
@@ -81,7 +81,17 @@
       transform: scale(0);
     }
 
-    &:checked + .options__label:after {
+    &:checked + .options__label.correct::after,
+    &:not(:checked) + .options__label.correct::after {
+      background-color: green;
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    &:checked + .options__label.inCorrect::after,
+    &:not(:checked) + .options__label.inCorrect::after {
+      background-color: red;
       opacity: 1;
       -webkit-transform: scale(1);
       transform: scale(1);
