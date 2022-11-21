@@ -12,9 +12,11 @@ const descThumb = document.querySelector(".answer__description.description");
 const birdNameEl = document.querySelector(".quiz__question-name");
 const birdImgEl = document.querySelector(".quiz__img");
 const nextLevelBtn = document.querySelector(".next-level-btn");
+const scoreEl = document.querySelector(".header__score");
 
 let categoryCount = 0;
 let score = 0;
+let isCorrect = false;
 let questionAudio = new Audio();
 let smallAudio = new Audio();
 let isAudioPlayerCreated = false;
@@ -39,8 +41,6 @@ async function showNewQuestion() {
 }
 
 async function chooseBird(e, birds, incognitoBird) {
-  // let scoreInSection = birds.length;
-
   //stop prev bird song:
   if (smallAudio.src) {
     smallAudio.pause();
@@ -48,39 +48,49 @@ async function chooseBird(e, birds, incognitoBird) {
 
   const chooseBirdName = e.target.value;
   const chooseBird = birds.find((bird) => bird.name === chooseBirdName);
+  let scoreInSection = birds.length;
 
+  //create description
   const htmlTemplate = createAnswerDesc(chooseBird);
   descThumb.innerHTML = htmlTemplate;
-
   const smallAudioEl = descThumb.querySelector(".answer-audio");
   smallAudio.src = chooseBird.audio;
   createQuestionPlayer(smallAudio, smallAudioEl, "audio-player");
 
   if (incognitoBird.name === chooseBirdName) {
-    //add audio:
-    const winAudio = new Audio("./assets/audio/smart.mp3");
-    winAudio.play();
-    //show img and name in question section:
-    birdNameEl.textContent = chooseBirdName;
-    birdImgEl.src = chooseBird.image;
-    //add green color:
-    e.target.nextElementSibling.classList.add("correct");
-    // todo: don't change color, but can see descr:
-    // optionsEl.forEach((el) => {
-    //   el.setAttribute("disabled", "");
-    // });
+    if (isCorrect === false) {
+      console.log("why?2", isCorrect);
+      //add audio:
+      const winAudio = new Audio("./assets/audio/smart.mp3");
+      winAudio.play();
+      //show img and name in question section:
+      birdNameEl.textContent = chooseBirdName;
+      birdImgEl.src = chooseBird.image;
+      //add green color:
+      e.target.nextElementSibling.classList.add("correct");
+      // todo: don't change color, but can see descr:
+      // optionsEl.forEach((el) => {
+      //   el.setAttribute("disabled", "");
+      // });
+      //stop questionAudio on correct answer:
+      questionAudio.pause();
+      //activate next level:
+      nextLevelBtn.removeAttribute("disabled");
+      //render score from prev quest
+      score += scoreInSection;
+      scoreEl.querySelector("span").textContent = score;
+    }
 
-    //stop questionAudio on correct answer:
-    questionAudio.pause();
-
-    //activate next level:
-    nextLevelBtn.removeAttribute("disabled");
+    isCorrect = true;
   } else {
-    //add audio:
-    const winAudio = new Audio("./assets/audio/click.mp3");
-    winAudio.play();
-    //add red color:
-    e.target.nextElementSibling.classList.add("inCorrect");
+    if (isCorrect === false) {
+      console.log("why?", isCorrect);
+      //add audio:
+      const winAudio = new Audio("./assets/audio/click.mp3");
+      winAudio.play();
+      //add red color:
+      e.target.nextElementSibling.classList.add("inCorrect");
+    }
   }
 }
 
@@ -91,6 +101,7 @@ function goToNextLevel() {
   birdNameEl.textContent = "******";
   birdImgEl.src = "./assets/images/bird-question.png";
   questionAudio.src = "";
+  isCorrect = false;
   //clean options:
   const optionsEl = document.querySelectorAll("[name='option']");
   optionsEl.forEach((el) => {
@@ -105,7 +116,6 @@ function goToNextLevel() {
   descThumb.innerHTML = `<p class="description__info">
                           Listen to the player. Select a bird from the list
                         </p>`;
-  //render scor from prev quest
 
   ++categoryCount;
 
