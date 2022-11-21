@@ -101,8 +101,10 @@ function goToNextLevel() {
   });
   //remove prev eventListeners
   formEl.replaceWith(formEl.cloneNode(true));
-
-  //clean descr
+  //clean description
+  descThumb.innerHTML = `<p class="description__info">
+                          Listen to the player. Select a bird from the list
+                        </p>`;
   //render scor from prev quest
 
   ++categoryCount;
