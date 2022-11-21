@@ -14,7 +14,7 @@ const birdImgEl = document.querySelector(".quiz__img");
 let categoryCount = 0;
 let score = 0;
 let questionAudio = null;
-
+let smallAudio = null;
 window.addEventListener("load", () => showNewQuestion(categoryCount, dataBase));
 
 async function showNewQuestion(categoryCount, dataBase) {
@@ -33,6 +33,11 @@ async function showNewQuestion(categoryCount, dataBase) {
 function chooseBird(e, incognitoBird, birds) {
   // let scoreInSection = birds.length;
 
+  //stop prev bird song:
+  if (smallAudio) {
+    smallAudio.pause();
+  }
+
   const chooseBirdName = e.target.value;
   const chooseBird = birds.find((bird) => bird.name === chooseBirdName);
 
@@ -40,10 +45,8 @@ function chooseBird(e, incognitoBird, birds) {
   descThumb.innerHTML = htmlTemplate;
 
   const smallAudioEl = descThumb.querySelector(".answer-audio");
-  const smallAudio = new Audio(chooseBird.audio);
+  smallAudio = new Audio(chooseBird.audio);
   createQuestionPlayer(smallAudio, smallAudioEl, "audio-player");
-  // createQuestionPlayer(smallAudioEl, chooseBird.audio, "audio-player");
-  // TODO: delete previous audio
 
   if (incognitoBird.name === chooseBirdName) {
     //add audio:
