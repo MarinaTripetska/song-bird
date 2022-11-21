@@ -20,6 +20,7 @@ let isCorrect = false;
 let questionAudio = new Audio();
 let smallAudio = new Audio();
 let isAudioPlayerCreated = false;
+let scoreInSection = 5;
 
 window.addEventListener("load", showNewQuestion);
 nextLevelBtn.addEventListener("click", goToNextLevel);
@@ -48,8 +49,6 @@ async function chooseBird(e, birds, incognitoBird) {
 
   const chooseBirdName = e.target.value;
   const chooseBird = birds.find((bird) => bird.name === chooseBirdName);
-  console.log(chooseBird);
-  let scoreInSection = birds.length;
 
   //create description
   const htmlTemplate = createAnswerDesc(chooseBird);
@@ -59,7 +58,7 @@ async function chooseBird(e, birds, incognitoBird) {
   createQuestionPlayer(smallAudio, smallAudioEl, "audio-player");
 
   if (incognitoBird.name === chooseBirdName) {
-    if (isCorrect === false) {
+    if (!isCorrect) {
       //add audio:
       const winAudio = new Audio("./assets/audio/smart.mp3");
       winAudio.play();
@@ -68,27 +67,25 @@ async function chooseBird(e, birds, incognitoBird) {
       birdImgEl.src = chooseBird.image;
       //add green color:
       e.target.nextElementSibling.classList.add("correct");
-      // todo: don't change color, but can see descr:
-      // optionsEl.forEach((el) => {
-      //   el.setAttribute("disabled", "");
-      // });
       //stop questionAudio on correct answer:
       questionAudio.pause();
       //activate next level:
       nextLevelBtn.removeAttribute("disabled");
       //render score from prev quest
+      console.log(scoreInSection);
       score += scoreInSection;
       scoreEl.querySelector("span").textContent = score;
     }
 
     isCorrect = true;
   } else {
-    if (isCorrect === false) {
+    if (!isCorrect) {
       //add audio:
       const winAudio = new Audio("./assets/audio/click.mp3");
       winAudio.play();
       //add red color:
       e.target.nextElementSibling.classList.add("inCorrect");
+      scoreInSection = --scoreInSection;
     }
   }
 }
@@ -101,6 +98,8 @@ function goToNextLevel() {
   birdImgEl.src = "./assets/images/bird-question.png";
   questionAudio.src = "";
   isCorrect = false;
+  scoreInSection = 5;
+
   //clean options:
   const optionsEl = document.querySelectorAll("[name='option']");
   optionsEl.forEach((el) => {
