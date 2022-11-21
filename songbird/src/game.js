@@ -6,7 +6,8 @@ import birdsInCategory from "./js/birdsInCategory";
 import createAnswerDesc from "./js/createAnswerDesc";
 
 const audioPlayerEl = document.querySelector(".quiz__audio-player");
-const optionsEl = document.querySelectorAll("[name='option']");
+const formEl = document.querySelector(".options__form");
+
 const descThumb = document.querySelector(".answer__description.description");
 const birdNameEl = document.querySelector(".quiz__question-name");
 const birdImgEl = document.querySelector(".quiz__img");
@@ -18,27 +19,26 @@ let questionAudio = new Audio();
 let smallAudio = new Audio();
 let isAudioPlayerCreated = false;
 
-window.addEventListener("load", () => showNewQuestion(categoryCount, dataBase));
+window.addEventListener("load", showNewQuestion);
 nextLevelBtn.addEventListener("click", goToNextLevel);
 
-async function showNewQuestion(categoryCount, dataBase) {
+async function showNewQuestion() {
   const incognitoBird = await randomBirdInCategory(categoryCount, dataBase);
-  const birds = birdsInCategory(categoryCount, dataBase);
-
+  const birds = await birdsInCategory(categoryCount, dataBase);
   questionAudio.src = incognitoBird.audio;
-
   if (!isAudioPlayerCreated) {
     createQuestionPlayer(questionAudio, audioPlayerEl, "audio-player");
   }
 
+  const optionsEl = document.querySelectorAll("[name='option']");
   optionsEl.forEach((el, i) => {
     el.setAttribute("value", birds[i].name);
     el.nextElementSibling.append(birds[i].name);
-    el.addEventListener("click", (e) => chooseBird(e, incognitoBird, birds));
+    el.addEventListener("click", (e) => chooseBird(e, birds, incognitoBird));
   });
 }
 
-function chooseBird(e, incognitoBird, birds) {
+async function chooseBird(e, birds, incognitoBird) {
   // let scoreInSection = birds.length;
 
   //stop prev bird song:
@@ -66,9 +66,9 @@ function chooseBird(e, incognitoBird, birds) {
     //add green color:
     e.target.nextElementSibling.classList.add("correct");
     // todo: don't change color, but can see descr:
-    optionsEl.forEach((el) => {
-      el.setAttribute("disabled", "");
-    });
+    // optionsEl.forEach((el) => {
+    //   el.setAttribute("disabled", "");
+    // });
 
     //stop questionAudio on correct answer:
     questionAudio.pause();
@@ -91,7 +91,21 @@ function goToNextLevel() {
   birdNameEl.textContent = "******";
   birdImgEl.src = "./assets/images/bird-question.png";
   questionAudio.src = "";
+  //clean options:
+  const optionsEl = document.querySelectorAll("[name='option']");
+  optionsEl.forEach((el) => {
+    el.nextElementSibling.textContent = "";
+    el.nextElementSibling.classList.remove("correct");
+    el.nextElementSibling.classList.remove("inCorrect");
+    el.removeAttribute("checked");
+  });
+  //remove prev eventListeners
+  formEl.replaceWith(formEl.cloneNode(true));
+
+  //clean descr
+  //render scor from prev quest
 
   ++categoryCount;
-  showNewQuestion(categoryCount, dataBase);
+
+  showNewQuestion();
 }
