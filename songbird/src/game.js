@@ -13,20 +13,20 @@ const birdImgEl = document.querySelector(".quiz__img");
 
 let categoryCount = 0;
 let score = 0;
+let questionAudio = null;
 
 window.addEventListener("load", () => showNewQuestion(categoryCount, dataBase));
 
-function showNewQuestion(categoryCount, dataBase) {
-  const incognitoBird = randomBirdInCategory(categoryCount, dataBase);
+async function showNewQuestion(categoryCount, dataBase) {
+  const incognitoBird = await randomBirdInCategory(categoryCount, dataBase);
   const birds = birdsInCategory(categoryCount, dataBase);
-  createQuestionPlayer(audioPlayerEl, incognitoBird.audio, "audio-player");
 
+  questionAudio = new Audio(incognitoBird.audio);
+  createQuestionPlayer(questionAudio, audioPlayerEl, "audio-player");
   optionsEl.forEach((el, i) => {
     el.setAttribute("value", birds[i].name);
     el.nextElementSibling.append(birds[i].name);
-    el.addEventListener("click", (e) =>
-      chooseBird(e, incognitoBird, birds, el)
-    );
+    el.addEventListener("click", (e) => chooseBird(e, incognitoBird, birds));
   });
 }
 
@@ -40,7 +40,9 @@ function chooseBird(e, incognitoBird, birds) {
   descThumb.innerHTML = htmlTemplate;
 
   const smallAudioEl = descThumb.querySelector(".answer-audio");
-  createQuestionPlayer(smallAudioEl, chooseBird.audio, "audio-player");
+  const smallAudio = new Audio(chooseBird.audio);
+  createQuestionPlayer(smallAudio, smallAudioEl, "audio-player");
+  // createQuestionPlayer(smallAudioEl, chooseBird.audio, "audio-player");
   // TODO: delete previous audio
 
   if (incognitoBird.name === chooseBirdName) {
@@ -56,6 +58,8 @@ function chooseBird(e, incognitoBird, birds) {
     optionsEl.forEach((el) => {
       el.setAttribute("disabled", "");
     });
+    //stop questionAudio on correct answer:
+    questionAudio.pause();
   } else {
     //add audio:
     const winAudio = new Audio("./assets/audio/click.mp3");

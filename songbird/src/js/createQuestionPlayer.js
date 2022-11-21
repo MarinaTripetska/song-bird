@@ -1,5 +1,5 @@
-function createQuestionPlayer(audioPlayer, audioSrc, blockBEM) {
-  const audio = new Audio(audioSrc);
+function createQuestionPlayer(audio, audioPlayer, blockBEM) {
+  // const audio = new Audio(audioSrc);
 
   audio.addEventListener("loadeddata", () => {
     audioPlayer.querySelector(`.${blockBEM}__time-length`).textContent =
