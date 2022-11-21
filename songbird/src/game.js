@@ -6,8 +6,6 @@ import birdsInCategory from "./js/birdsInCategory";
 import createAnswerDesc from "./js/createAnswerDesc";
 
 const audioPlayerEl = document.querySelector(".quiz__audio-player");
-const formEl = document.querySelector(".options__form");
-
 const descThumb = document.querySelector(".answer__description.description");
 const birdNameEl = document.querySelector(".quiz__question-name");
 const birdImgEl = document.querySelector(".quiz__img");
@@ -25,9 +23,9 @@ let scoreInSection = 5;
 window.addEventListener("load", showNewQuestion);
 nextLevelBtn.addEventListener("click", goToNextLevel);
 
-async function showNewQuestion() {
-  const incognitoBird = await randomBirdInCategory(categoryCount, dataBase);
-  const birds = await birdsInCategory(categoryCount, dataBase);
+function showNewQuestion() {
+  const incognitoBird = randomBirdInCategory(categoryCount, dataBase);
+  const birds = birdsInCategory(categoryCount, dataBase);
   questionAudio.src = incognitoBird.audio;
   if (!isAudioPlayerCreated) {
     createQuestionPlayer(questionAudio, audioPlayerEl, "audio-player");
@@ -41,14 +39,17 @@ async function showNewQuestion() {
   });
 }
 
-async function chooseBird(e, birds, incognitoBird) {
+function chooseBird(e, birds, incognitoBird) {
   //stop prev bird song:
   if (smallAudio.src) {
     smallAudio.pause();
   }
 
   const chooseBirdName = e.target.value;
-  const chooseBird = birds.find((bird) => bird.name === chooseBirdName);
+
+  const chooseBird = birds.find((bird) => {
+    return bird.name === chooseBirdName;
+  });
 
   //create description
   const htmlTemplate = createAnswerDesc(chooseBird);
@@ -72,7 +73,7 @@ async function chooseBird(e, birds, incognitoBird) {
       //activate next level:
       nextLevelBtn.removeAttribute("disabled");
       //render score from prev quest
-      console.log(scoreInSection);
+
       score += scoreInSection;
       scoreEl.querySelector("span").textContent = score;
     }
@@ -103,12 +104,14 @@ function goToNextLevel() {
   //clean options:
   const optionsEl = document.querySelectorAll("[name='option']");
   optionsEl.forEach((el) => {
+    el.value = "";
     el.nextElementSibling.textContent = "";
     el.nextElementSibling.classList.remove("correct");
     el.nextElementSibling.classList.remove("inCorrect");
     el.removeAttribute("checked");
   });
   //remove prev eventListeners
+  const formEl = document.querySelector(".options__form");
   formEl.replaceWith(formEl.cloneNode(true));
   //clean description
   descThumb.innerHTML = `<p class="description__info">
