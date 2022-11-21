@@ -10,19 +10,27 @@ const optionsEl = document.querySelectorAll("[name='option']");
 const descThumb = document.querySelector(".answer__description.description");
 const birdNameEl = document.querySelector(".quiz__question-name");
 const birdImgEl = document.querySelector(".quiz__img");
+const nextLevelBtn = document.querySelector(".next-level-btn");
 
 let categoryCount = 0;
 let score = 0;
-let questionAudio = null;
-let smallAudio = null;
+let questionAudio = new Audio();
+let smallAudio = new Audio();
+let isAudioPlayerCreated = false;
+
 window.addEventListener("load", () => showNewQuestion(categoryCount, dataBase));
+nextLevelBtn.addEventListener("click", goToNextLevel);
 
 async function showNewQuestion(categoryCount, dataBase) {
   const incognitoBird = await randomBirdInCategory(categoryCount, dataBase);
   const birds = birdsInCategory(categoryCount, dataBase);
 
-  questionAudio = new Audio(incognitoBird.audio);
-  createQuestionPlayer(questionAudio, audioPlayerEl, "audio-player");
+  questionAudio.src = incognitoBird.audio;
+
+  if (!isAudioPlayerCreated) {
+    createQuestionPlayer(questionAudio, audioPlayerEl, "audio-player");
+  }
+
   optionsEl.forEach((el, i) => {
     el.setAttribute("value", birds[i].name);
     el.nextElementSibling.append(birds[i].name);
@@ -34,7 +42,7 @@ function chooseBird(e, incognitoBird, birds) {
   // let scoreInSection = birds.length;
 
   //stop prev bird song:
-  if (smallAudio) {
+  if (smallAudio.src) {
     smallAudio.pause();
   }
 
@@ -45,7 +53,7 @@ function chooseBird(e, incognitoBird, birds) {
   descThumb.innerHTML = htmlTemplate;
 
   const smallAudioEl = descThumb.querySelector(".answer-audio");
-  smallAudio = new Audio(chooseBird.audio);
+  smallAudio.src = chooseBird.audio;
   createQuestionPlayer(smallAudio, smallAudioEl, "audio-player");
 
   if (incognitoBird.name === chooseBirdName) {
@@ -61,8 +69,12 @@ function chooseBird(e, incognitoBird, birds) {
     optionsEl.forEach((el) => {
       el.setAttribute("disabled", "");
     });
+
     //stop questionAudio on correct answer:
     questionAudio.pause();
+
+    //activate next level:
+    nextLevelBtn.removeAttribute("disabled");
   } else {
     //add audio:
     const winAudio = new Audio("./assets/audio/click.mp3");
@@ -74,11 +86,12 @@ function chooseBird(e, incognitoBird, birds) {
 
 // function addScore() {}
 
-// const nextLevelBtn = document.querySelector(".next-level-btn");
-// nextLevelBtn.addEventListener("click", goToNextLevel);
+function goToNextLevel() {
+  nextLevelBtn.setAttribute("disabled", "");
+  birdNameEl.textContent = "******";
+  birdImgEl.src = "./assets/images/bird-question.png";
+  questionAudio.src = "";
 
-// function goToNextLevel() {
-// remove eventListeners
-//   categoryCount++;
-//   showNewQuestion(categoryCount, dataBase);
-// }
+  ++categoryCount;
+  showNewQuestion(categoryCount, dataBase);
+}

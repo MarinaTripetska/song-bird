@@ -50,7 +50,7 @@
     gap: 4px;
   }
 
-  &__volume-box {
+  &__vol-box {
     position: relative;
     z-index: 2;
     display: flex;
@@ -58,14 +58,14 @@
     cursor: pointer;
 
     &:hover {
-      .audio-player__volume-slider {
+      .audio-player__vol-slider {
         left: -123px;
         width: 120px;
       }
     }
   }
 
-  &__volume-btn {
+  &__vol-btn {
     background: inherit;
     border: none;
     fill: $white;
@@ -76,7 +76,7 @@
     }
   }
 
-  &__volume-slider {
+  &__vol-slider {
     position: absolute;
     z-index: -1;
     left: -3px;
@@ -87,7 +87,7 @@
     transition: 0.25s;
   }
 
-  &__volume-percentage {
+  &__vol-percentage {
     background: $coral;
     height: 100%;
     width: 75%;
