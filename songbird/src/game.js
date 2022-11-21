@@ -48,6 +48,7 @@ async function chooseBird(e, birds, incognitoBird) {
 
   const chooseBirdName = e.target.value;
   const chooseBird = birds.find((bird) => bird.name === chooseBirdName);
+  console.log(chooseBird);
   let scoreInSection = birds.length;
 
   //create description
@@ -59,7 +60,6 @@ async function chooseBird(e, birds, incognitoBird) {
 
   if (incognitoBird.name === chooseBirdName) {
     if (isCorrect === false) {
-      console.log("why?2", isCorrect);
       //add audio:
       const winAudio = new Audio("./assets/audio/smart.mp3");
       winAudio.play();
@@ -84,7 +84,6 @@ async function chooseBird(e, birds, incognitoBird) {
     isCorrect = true;
   } else {
     if (isCorrect === false) {
-      console.log("why?", isCorrect);
       //add audio:
       const winAudio = new Audio("./assets/audio/click.mp3");
       winAudio.play();
