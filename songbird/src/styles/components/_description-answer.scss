@@ -1,9 +1,27 @@
 .description {
+  width: 100%;
+  min-height: 350px;
+  font-family: Anybody, cursive;
+  padding: 15px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.308);
+  background-color: $transparent-red;
+
+  @media screen and (max-width: 900px) {
+    min-height: 250px;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 10px;
+    min-height: 465px;
+  }
+
   &__info {
-    padding-top: 50px;
+    margin: auto 0;
     text-align: center;
     font-size: 18px;
     line-height: 1.5;
+
     &::-moz-selection {
       background: $dark-red;
     }
@@ -20,6 +38,9 @@
   &__thumb {
     display: flex;
     gap: 15px;
+    @media screen and (max-width: 450px) {
+      flex-direction: column;
+    }
   }
 
   &__img-box {
@@ -27,6 +48,9 @@
     height: 200px;
     border-radius: 10px;
     overflow: hidden;
+    @media screen and (max-width: 450px) {
+      align-self: center;
+    }
   }
 
   &__img {
@@ -40,25 +64,27 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
   }
 
-  &__title {
-    text-align: center;
-  }
-
   &__species {
-    text-align: center;
     font-family: "Caveat", cursive;
   }
 
   &__desc {
     font-size: 14px;
+    &::-moz-selection {
+      background: $dark-red;
+    }
+
+    &::selection {
+      background: $dark-red;
+    }
   }
 
   .answer-audio {
     width: 100%;
     max-width: 400px;
-    // max-width: 300px;
   }
 }

@@ -15,6 +15,10 @@
   padding: 25px 0;
   font-family: "Caveat", cursive;
   font-weight: 400;
+
+  @media screen and (max-width: 450px) {
+    gap: 15px;
+  }
 }
 
 .header {
@@ -27,16 +31,27 @@
     font-size: 60px;
     color: $red;
     text-shadow: 4px 4px 6px $white-shadow;
+
+    @media screen and (max-width: 450px) {
+      font-size: 36px;
+    }
   }
 
   &__score {
-    font-size: 35px;
+    font-size: 36px;
+    @media screen and (max-width: 450px) {
+      font-size: 24px;
+    }
   }
 }
 
 .categories {
   @extend %container;
   margin-bottom: 35px;
+
+  @media screen and (max-width: 450px) {
+    margin-bottom: 15px;
+  }
 
   &__list {
     display: flex;
@@ -81,13 +96,16 @@
 
 .quiz {
   @extend %container;
+
   &__thumb {
+    height: 200px;
+    padding: 20px;
+
     display: flex;
     justify-content: space-between;
-    // justify-content: flex-start;
     gap: 40px;
     align-items: center;
-    padding: 20px;
+
     background-color: $transparent-red;
     border-radius: 10px;
 
@@ -95,16 +113,28 @@
       gap: 25px;
       padding: 20px 15px;
     }
+
     @media screen and (max-width: 450px) {
+      flex-direction: column;
+      height: 230px;
       gap: 10px;
+      padding: 10px;
     }
   }
 
   &__img-thumb {
-    padding: 5px;
-    background-color: $dark-red;
-    border-radius: 10px;
     overflow: hidden;
+    height: 180px;
+    width: 200px;
+  }
+
+  &__img {
+    margin-top: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    border-radius: 10px;
   }
 
   &__question-thumb {
@@ -139,24 +169,14 @@
     flex-direction: column;
   }
 
-  &__options,
-  &__description {
-    width: 100%;
-    min-height: 350px;
-    font-family: Anybody, cursive;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.308);
-    background-color: $transparent-red;
-
-    @media screen and (max-width: 900px) {
-      min-height: 250px;
-    }
+  @media screen and (max-width: 450px) {
+    margin-top: 15px;
   }
 }
 
 .next-level-btn {
   @extend %button;
-  max-width: 300px;
+  width: 100%;
+  max-width: 280px;
   margin: 35px auto 0 auto;
 }

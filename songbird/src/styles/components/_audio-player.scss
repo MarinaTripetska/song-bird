@@ -13,6 +13,11 @@
   display: grid;
   grid-template-rows: 6px auto;
 
+  @media screen and (max-width: 450px) {
+    height: 35px;
+    grid-template-rows: 3px auto;
+  }
+
   &__timeline {
     width: 100%;
     background-color: $white;
@@ -45,6 +50,16 @@
     }
   }
 
+  &__play-icon {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (max-width: 450px) {
+      width: 15px;
+      height: 15px;
+    }
+  }
+
   &__time {
     display: flex;
     gap: 4px;
@@ -73,6 +88,16 @@
 
     &:hover {
       transform: scale(1.1);
+    }
+  }
+
+  &__vol-icon {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (max-width: 450px) {
+      width: 15px;
+      height: 15px;
     }
   }
 

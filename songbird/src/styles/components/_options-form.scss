@@ -1,13 +1,26 @@
 .options {
-  font-family: Anybody, cursive;
-  font-size: 16px;
-  letter-spacing: 0.1em;
-
+  width: 100%;
+  min-height: 350px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  @media screen and (max-width: 400px) {
+  font-family: Anybody, cursive;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.308);
+  background-color: $transparent-red;
+
+  @media screen and (max-width: 900px) {
+    min-height: 250px;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 10px;
+    min-height: 200px;
     font-size: 14px;
   }
 
@@ -27,7 +40,7 @@
       background-color: rgba(255, 255, 255, 0.234);
     }
 
-    @media screen and (max-width: 400px) {
+    @media screen and (max-width: 450px) {
       height: 35px;
     }
   }
@@ -61,7 +74,7 @@
     &:checked + .options__label,
     &:not(:checked) + .options__label {
       position: relative;
-      padding-left: 40px;
+      padding-left: 50px;
     }
 
     &:checked + .options__label:before,
@@ -76,7 +89,7 @@
       border-radius: 50%;
       background-color: $white;
 
-      @media screen and (max-width: 400px) {
+      @media screen and (max-width: 450px) {
         top: 7px;
       }
     }
@@ -93,7 +106,7 @@
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
 
-      @media screen and (max-width: 400px) {
+      @media screen and (max-width: 450px) {
         top: 10px;
       }
     }

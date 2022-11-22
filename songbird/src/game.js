@@ -25,7 +25,8 @@ window.addEventListener("load", showNewQuestion);
 nextLevelBtn.addEventListener("click", goToNextLevel);
 
 function showNewQuestion() {
-  const incognitoBird = randomBirdInCategory(categoryCount, dataBase);
+  const incognitoBird = dataBase[categoryCount][5];
+  // const incognitoBird = randomBirdInCategory(categoryCount, dataBase);
   const birds = birdsInCategory(categoryCount, dataBase);
   questionAudio.src = incognitoBird.audio;
   if (!isAudioPlayerCreated) {

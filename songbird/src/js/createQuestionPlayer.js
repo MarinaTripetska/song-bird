@@ -7,7 +7,7 @@ function createQuestionPlayer(audio, audioPlayer, blockBEM) {
               <div class="${blockBEM}__controls">
                 <div class="play-container">
                   <button type="button" class="${blockBEM}__toggle-play-btn">
-                    <svg width="20" height="20">
+                    <svg class="${blockBEM}__play-icon">
                       <use href="./assets/icons/sprite.svg#icon-play" />
                     </svg>
                   </button>
@@ -21,7 +21,7 @@ function createQuestionPlayer(audio, audioPlayer, blockBEM) {
 
                 <div class="${blockBEM}__vol-box">
                   <button type="button" class="${blockBEM}__vol-btn">
-                    <svg width="20" height="20">
+                    <svg class="${blockBEM}__vol-icon">
                       <use
                         href="./assets/icons/sprite.svg#icon-volume-medium"
                       />
