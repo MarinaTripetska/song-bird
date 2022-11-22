@@ -1,5 +1,5 @@
 import "./styles/game.scss";
-import dataBase from "./js/base";
+import dataBase from "./js/baseEn";
 import randomBirdInCategory from "./js/randomBirdInCategory";
 import createQuestionPlayer from "./js/createQuestionPlayer";
 import birdsInCategory from "./js/birdsInCategory";
