@@ -126,3 +126,4 @@ function goToNextLevel() {
 }
 
 // TODO: button next level change color, text. before maybe modal with congrats? button provide on results page with scores from localstaroge. in modal we can ask about name for saving score
+console.log("проверте пожалуйста в четверг :)");
