@@ -4,6 +4,7 @@ import randomBirdInCategory from "./js/randomBirdInCategory";
 import createQuestionPlayer from "./js/createQuestionPlayer";
 import birdsInCategory from "./js/birdsInCategory";
 import createAnswerDesc from "./js/createAnswerDesc";
+import activateNextCategory from "./js/activateNextCategory";
 
 const audioPlayerEl = document.querySelector(".quiz__audio-player");
 const descThumb = document.querySelector(".answer__description.description");
@@ -124,17 +125,4 @@ function goToNextLevel() {
   activateNextCategory();
 }
 
-function activateNextCategory() {
-  const categoriesList = document.querySelectorAll("[data-active]");
-  let index = 0;
-  categoriesList.forEach((el, i) => {
-    if (el.previousElementSibling) {
-      if (el.previousElementSibling.dataset.active === "true") {
-        el.previousElementSibling.dataset.active = "false";
-        index = i;
-      }
-    }
-  });
-
-  categoriesList[index].dataset.active = "true";
-}
+// TODO: button next level change color, text. before maybe modal with congrats? button provide on results page with scores from localstaroge. in modal we can ask about name for saving score
