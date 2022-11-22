@@ -134,14 +134,15 @@ function goToNextLevel() {
 function onFinishGameClick() {
   const quizMainThumb = document.querySelector(".quiz-main-thumb");
   quizMainThumb.innerHTML = `
-    <div>
-      <h1>Congratulations!</h1>
-      <p>You passed the quiz and scored <span>${score}</span> out of <span>30</span> possible points</p>
-     <a href="./index.html">Try again!</a>
+    <div class="congrats">
+      <div class="congrats__thumb">
+        <h1 class="congrats__title">Congratulations!</h1>
+        <p class="congrats__txt">You passed the quiz and scored <span class="congrats__score">${score}</span> out of <span class="congrats__score">30</span> possible points</p>
+        <a class="congrats__restart-link" href="./index.html">Try again!</a>
+      </div>
     </div>
   `;
 }
-
 
 // TODO: button next level change color, text. before maybe modal with congrats? button provide on results page with scores from localstaroge. in modal we can ask about name for saving score
 console.log("проверте пожалуйста в четверг :)");
