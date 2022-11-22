@@ -6,6 +6,7 @@ import birdsInCategory from "./js/birdsInCategory";
 import createAnswerDesc from "./js/createAnswerDesc";
 import activateNextCategory from "./js/activateNextCategory";
 
+const quizMainThumbOnStart = document.querySelector(".quiz-main-thumb");
 const audioPlayerEl = document.querySelector(".quiz__audio-player");
 const descThumb = document.querySelector(".answer__description.description");
 const birdNameEl = document.querySelector(".quiz__question-name");
@@ -13,13 +14,13 @@ const birdImgEl = document.querySelector(".quiz__img");
 const nextLevelBtn = document.querySelector(".next-level-btn");
 const scoreEl = document.querySelector(".header__score");
 
-let categoryCount = 0;
-let score = 0;
+let categoryCount = 5; //category count from 0 to 5
+let score = 0; //main score
 let isCorrect = false;
 let questionAudio = new Audio();
 let smallAudio = new Audio();
 let isAudioPlayerCreated = false;
-let scoreInSection = 5;
+let scoreInSection = 5; //max points for correct answer
 
 window.addEventListener("load", showNewQuestion);
 nextLevelBtn.addEventListener("click", goToNextLevel);
@@ -80,6 +81,10 @@ function chooseBird(e, birds, incognitoBird) {
     }
 
     isCorrect = true;
+    if (categoryCount === 5) {
+      nextLevelBtn.textContent = "FINISH GAME";
+      nextLevelBtn.style.backgroundColor = "green";
+    }
   } else {
     if (!isCorrect) {
       //add audio:
@@ -91,8 +96,6 @@ function chooseBird(e, birds, incognitoBird) {
     }
   }
 }
-
-// function addScore() {}
 
 function goToNextLevel() {
   nextLevelBtn.setAttribute("disabled", "");
@@ -120,10 +123,25 @@ function goToNextLevel() {
                         </p>`;
 
   ++categoryCount;
-
-  showNewQuestion();
-  activateNextCategory();
+  if (categoryCount < 6) {
+    showNewQuestion();
+    activateNextCategory();
+  } else {
+    onFinishGameClick();
+  }
 }
+
+function onFinishGameClick() {
+  const quizMainThumb = document.querySelector(".quiz-main-thumb");
+  quizMainThumb.innerHTML = `
+    <div>
+      <h1>Congratulations!</h1>
+      <p>You passed the quiz and scored <span>${score}</span> out of <span>30</span> possible points</p>
+     <a href="./index.html">Try again!</a>
+    </div>
+  `;
+}
+
 
 // TODO: button next level change color, text. before maybe modal with congrats? button provide on results page with scores from localstaroge. in modal we can ask about name for saving score
 console.log("проверте пожалуйста в четверг :)");
