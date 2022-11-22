@@ -6,7 +6,6 @@ import birdsInCategory from "./js/birdsInCategory";
 import createAnswerDesc from "./js/createAnswerDesc";
 import activateNextCategory from "./js/activateNextCategory";
 
-const quizMainThumbOnStart = document.querySelector(".quiz-main-thumb");
 const audioPlayerEl = document.querySelector(".quiz__audio-player");
 const descThumb = document.querySelector(".answer__description.description");
 const birdNameEl = document.querySelector(".quiz__question-name");
@@ -14,7 +13,7 @@ const birdImgEl = document.querySelector(".quiz__img");
 const nextLevelBtn = document.querySelector(".next-level-btn");
 const scoreEl = document.querySelector(".header__score");
 
-let categoryCount = 5; //category count from 0 to 5
+let categoryCount = 0; //category count from 0 to 5
 let score = 0; //main score
 let isCorrect = false;
 let questionAudio = new Audio();

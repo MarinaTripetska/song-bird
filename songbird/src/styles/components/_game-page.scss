@@ -11,7 +11,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-
+  gap: 35px;
+  padding: 25px 0;
   font-family: "Caveat", cursive;
   font-weight: 400;
 }
@@ -45,6 +46,17 @@
 
     font-family: "Anybody", cursive;
     font-size: 20px;
+
+    @media screen and (max-width: 900px) {
+      font-size: 16px;
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 50% 50%;
+    }
+    @media screen and (max-width: 450px) {
+      font-size: 14px;
+    }
   }
 
   &__item {
@@ -59,6 +71,10 @@
 
     &[data-active="true"] {
       background-color: $dark-red;
+    }
+
+    @media screen and (max-width: 450px) {
+      padding: 6px;
     }
   }
 }
@@ -107,4 +123,10 @@
     border: 1px solid rgba(255, 255, 255, 0.308);
     background-color: $transparent-red;
   }
+}
+
+.next-level-btn {
+  @extend %button;
+  max-width: 300px;
+  margin: 35px auto 0 auto;
 }

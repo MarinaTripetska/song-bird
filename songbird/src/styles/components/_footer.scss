@@ -1,11 +1,13 @@
 .footer {
   @extend %container;
-  padding-top: 45px;
-  padding-bottom: 15px;
-
+  margin-top: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 15px;
   font-size: 20px;
+
+  &__icon-svg {
+    fill: $white;
+  }
 }
