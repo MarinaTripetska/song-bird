@@ -120,6 +120,7 @@ function goToNextLevel() {
   descThumb.innerHTML = `<p class="description__info">
                           Listen to the player. Select a bird from the list
                         </p>`;
+  smallAudio.pause();
 
   ++categoryCount;
   if (categoryCount < 6) {
@@ -153,6 +154,3 @@ function addScoreToLocalStorage() {
     window.localStorage.setItem("songBirdScore", JSON.stringify([score]));
   }
 }
-
-// TODO: button next level change color, text. before maybe modal with congrats? button provide on results page with scores from localstaroge. in modal we can ask about name for saving score
-console.log("проверте пожалуйста в четверг :)");
