@@ -43,4 +43,12 @@
       padding: 18px 34px;
     }
   }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-image: linear-gradient(#8a7493, #483d56 50%);
+  }
+  &:disabled:hover {
+    background-image: linear-gradient(#57495d, #332a3e 50%);
+  }
 }
