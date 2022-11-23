@@ -5,9 +5,4 @@
 @import "./extends/button";
 
 @import "./components/footer";
-
-body {
-  display: flex;
-  flex-direction: column;
-  background-color: rgb(61, 74, 172);
-}
+@import "./components/results-page";

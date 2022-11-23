@@ -11,9 +11,11 @@ function loadResults() {
 
   if (songBirdScore) {
     const liElements = songBirdScore.map(
-      (el, i) => `<li>Result ${i + 1}: ${el}</li>`
+      (el, i) =>
+        `<li class="result"><span class="result__name">Result ${i + 1}:</span> 
+        <span class="result__score">${el}</span></li>`
     );
-    resultList.innerHTML = `${liElements}`;
+    resultList.innerHTML = `${liElements.join("")}`;
   } else {
     insteadResultList.innerHTML = `<p>No results yet!<p>`;
   }

@@ -1,0 +1,77 @@
+.results {
+  padding: 35px 0;
+  display: flex;
+  flex-direction: column;
+  background: rgb(210, 109, 235);
+  background: url("../assets/images/birds-1.png"),
+    url("../assets/images/stars-sky.png"),
+    linear-gradient(32deg, rgba(210, 109, 235, 1) 0%, rgba(39, 28, 138, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: right, center;
+  background-size: contain;
+  color: $white;
+
+  &__header,
+  &__main {
+    @extend %container;
+  }
+  &__header {
+    margin-bottom: 55px;
+  }
+  &__title {
+    font-family: "Caveat", cursive;
+    font-weight: 400;
+    font-size: 45px;
+    text-align: center;
+  }
+  &__link-box {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 45px;
+  }
+  &__link {
+    @extend %button;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  &__list-box {
+    max-width: 500px;
+    min-height: 400px;
+    margin: 0 auto;
+    padding: 75px 30px;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 204, 2, 0.798);
+    background-color: rgba(138, 137, 137, 0.479);
+  }
+
+  &__instead-list,
+  &__list {
+    font-family: "Anybody", cursive;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgb(172, 213, 249);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__instead-list {
+    text-align: center;
+  }
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+
+  &__score {
+    font-weight: 800;
+    color: rgb(204, 226, 245);
+  }
+}

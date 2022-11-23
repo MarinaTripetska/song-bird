@@ -13,7 +13,7 @@ const birdImgEl = document.querySelector(".quiz__img");
 const nextLevelBtn = document.querySelector(".next-level-btn");
 const scoreEl = document.querySelector(".header__score");
 
-let categoryCount = 5; //category count from 0 to 5
+let categoryCount = 0; //category count from 0 to 5
 let score = 0; //main score
 let isCorrect = false;
 let questionAudio = new Audio();
