@@ -139,7 +139,7 @@ const birdsDataEn = [
       name: "Crossbill",
       species: "Loxia curvirostra",
       description:
-        "Crossbills are called “Christmas” birds. Under exceptional conditions, they give birth in winter - in January. These birds insulate their nests with moss and animal hair, so the chicks are not cold. In search of cones crossbills can fly 3500 km from the nest.",
+        "Crossbills are called “Christmas” birds. Under exceptional conditions, they give birth in winter - in January. These birds insulate their nests with moss and animal hair, so the chicks are not cold. In search of cones crossbills can fly 350 km from the nest.",
       image: "https://live.staticflickr.com//65535//49365470123_f2de66bb35.jpg",
       audio:
         "https://www.xeno-canto.org/sounds/uploaded/OTVUCEGYZN/XC495381-Kruisbek%20roep%20NHD%20290619.mp3",
