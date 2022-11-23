@@ -13,7 +13,7 @@ const birdImgEl = document.querySelector(".quiz__img");
 const nextLevelBtn = document.querySelector(".next-level-btn");
 const scoreEl = document.querySelector(".header__score");
 
-let categoryCount = 0; //category count from 0 to 5
+let categoryCount = 5; //category count from 0 to 5
 let score = 0; //main score
 let isCorrect = false;
 let questionAudio = new Audio();
@@ -25,8 +25,7 @@ window.addEventListener("load", showNewQuestion);
 nextLevelBtn.addEventListener("click", goToNextLevel);
 
 function showNewQuestion() {
-  const incognitoBird = dataBase[categoryCount][5];
-  // const incognitoBird = randomBirdInCategory(categoryCount, dataBase);
+  const incognitoBird = randomBirdInCategory(categoryCount, dataBase);
   const birds = birdsInCategory(categoryCount, dataBase);
   questionAudio.src = incognitoBird.audio;
   if (!isAudioPlayerCreated) {
@@ -142,6 +141,17 @@ function onFinishGameClick() {
       </div>
     </div>
   `;
+  addScoreToLocalStorage();
+}
+
+function addScoreToLocalStorage() {
+  const prevScore = JSON.parse(window.localStorage.getItem("songBirdScore"));
+  if (prevScore) {
+    prevScore.push(score);
+    window.localStorage.setItem("songBirdScore", JSON.stringify(prevScore));
+  } else {
+    window.localStorage.setItem("songBirdScore", JSON.stringify([score]));
+  }
 }
 
 // TODO: button next level change color, text. before maybe modal with congrats? button provide on results page with scores from localstaroge. in modal we can ask about name for saving score

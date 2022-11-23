@@ -1,3 +1,13 @@
-.title{
-  background-color: blue;
+@import "./base/colors";
+@import "./base/normalize";
+
+@import "./extends/container";
+@import "./extends/button";
+
+@import "./components/footer";
+
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(61, 74, 172);
 }
