@@ -135,8 +135,10 @@ function chooseBird(e, birds, incognitoBird) {
       const winAudio = new Audio("./assets/audio/click.mp3");
       winAudio.play();
       //add red color:
-      e.target.nextElementSibling.classList.add("inCorrect");
-      scoreInSection = --scoreInSection;
+      if (!e.target.nextElementSibling.classList.contains("inCorrect")) {
+        e.target.nextElementSibling.classList.add("inCorrect");
+        scoreInSection = --scoreInSection;
+      }
     }
   }
 }
