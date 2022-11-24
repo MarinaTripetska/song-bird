@@ -1,5 +1,5 @@
-// import image from './images/...';
 import "./styles/index.scss";
+import { i18n } from "./js/i18n";
 
 const englishBtnEl = document.querySelector(".english-btn");
 const polishBtnEl = document.querySelector(".polish-btn");
@@ -30,17 +30,16 @@ function choosePolish() {
 }
 
 function renderPageWithLanguage(lang) {
+  const { mainPage } = i18n;
   if (lang === "en") {
-    mainTitle.textContent = "Discover who's singing";
-    mainDescription.textContent =
-      "Here is a fantastic app quiz with bird songs that lets you learn more about them.";
-    newGameBtn.textContent = "Start quiz";
-    resultsBtn.textContent = "Your Results";
+    mainTitle.textContent = mainPage.en.title;
+    mainDescription.textContent = mainPage.en.description;
+    newGameBtn.textContent = mainPage.en.gameBtn;
+    resultsBtn.textContent = mainPage.en.resultBtn;
   } else if (lang === "pl") {
-    mainTitle.textContent = "Odkryj, kto śpiewa";
-    mainDescription.textContent =
-      "Oto fantastyczny quiz ze śpiewem ptaków, dzięki któremu dowiesz się o nich więcej.";
-    newGameBtn.textContent = "Rozpocznij gre!";
-    resultsBtn.textContent = "Twoje wyniki";
+    mainTitle.textContent = mainPage.pl.title;
+    mainDescription.textContent = mainPage.pl.description;
+    newGameBtn.textContent = mainPage.pl.gameBtn;
+    resultsBtn.textContent = mainPage.pl.resultBtn;
   }
 }
