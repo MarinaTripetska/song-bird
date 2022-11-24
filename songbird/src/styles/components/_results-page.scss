@@ -27,13 +27,14 @@
   &__link-box {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    flex-wrap: wrap;
+    gap: 30px;
     margin-top: 45px;
   }
   &__link {
     @extend %button;
     width: 100%;
-    max-width: 200px;
+    max-width: 230px;
   }
 
   &__list-box {

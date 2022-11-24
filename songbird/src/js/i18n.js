@@ -50,5 +50,18 @@ export const i18n = {
       tryAgain: "Zagraj jeszcze raz!",
     },
   },
-  resultsPage: {},
+  resultsPage: {
+    en: {
+      title: "Your Results",
+      result: "Result",
+      toMainPage: "Main page",
+      toNewGame: "New game",
+    },
+    pl: {
+      title: "Twoje wyniki",
+      result: "Wynik",
+      toMainPage: "Strona startowa",
+      toNewGame: "Nowa gra",
+    },
+  },
 };
