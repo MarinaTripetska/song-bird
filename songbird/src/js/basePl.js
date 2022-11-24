@@ -270,8 +270,8 @@ const birdsData = [
     },
     {
       id: 3,
-      name: "Лунь",
-      species: "Błotniak zbożowy",
+      name: "Błotniak zbożowy",
+      species: "Circus cyaneus",
       description:
         "Błotniak to mały sokół. Żywi się głównie gryzoniami, podstawą jego diety są norniki, chomiki i myszy. Upierzenie błotniaka może być popielate. Z takim ptakiem kojarzy się porównanie „siwowłosy jak błotniak”.",
       image: "https://live.staticflickr.com/4480/37240531151_b74619c99d.jpg",
