@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SongBird Game</title>
+    <link
+      rel="shortcut icon"
+      type="image/ico"
+      href="./assets/images/bird.ico"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Caveat&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="body">
+    <header class="header">
+      <h1 class="header__title">SongBird</h1>
+      <p class="header__score"><span>Score: </span><span>0</span></p>
+    </header>
+    <main>
+      <div class="categories">
+        <ul class="categories__list">
+          <li class="categories__item" data-active="true">arm-up</li>
+          <li class="categories__item" data-active="false">passerines</li>
+          <li class="categories__item" data-active="false">forest birds</li>
+          <li class="categories__item" data-active="false">songbirds</li>
+          <li class="categories__item" data-active="false">predator birds</li>
+          <li class="categories__item" data-active="false">sea birds</li>
+        </ul>
+      </div>
+
+      <div class="quiz-main-thumb">
+        <div class="quiz">
+          <div class="quiz__thumb">
+            <div class="quiz__img-thumb">
+              <img
+                class="quiz__img"
+                src="./assets/images/bird-question.png"
+                alt="some bird"
+              />
+            </div>
+
+            <div class="quiz__question-thumb">
+              <h2 class="quiz__question-name">******</h2>
+
+              <div class="quiz__audio-player audio-player">
+                <div class="audio-player__timeline">
+                  <div class="audio-player__progress"></div>
+                </div>
+
+                <div class="audio-player__controls">
+                  <div class="play-container">
+                    <button type="button" class="audio-player__toggle-play-btn">
+                      <svg class="audio-player__play-icon">
+                        <use href="./assets/icons/sprite.svg#icon-play" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="audio-player__time">
+                    <div class="audio-player__time-current">0:00</div>
+                    <div class="audio-player__time-divider">/</div>
+                    <div class="audio-player__time-length"></div>
+                  </div>
+
+                  <div class="audio-player__vol-box">
+                    <button type="button" class="audio-player__vol-btn">
+                      <svg class="audio-player__vol-icon">
+                        <use
+                          href="./assets/icons/sprite.svg#icon-volume-medium"
+                        />
+                      </svg>
+                    </button>
+
+                    <div class="audio-player__vol-slider">
+                      <div class="audio-player__vol-percentage"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="answer">
+          <div class="answer__options options">
+            <form class="options__form">
+              <p class="options__option">
+                <input
+                  id="option-1"
+                  class="options__input"
+                  type="radio"
+                  name="option"
+                  value=""
+                />
+                <label for="option-1" class="options__label"></label>
+              </p>
+              <p class="options__option">
+                <input
+                  id="option-2"
+                  class="options__input"
+                  type="radio"
+                  name="option"
+                  value=""
+                />
+                <label for="option-2" class="options__label"></label>
+              </p>
+              <p class="options__option">
+                <input
+                  id="option-3"
+                  class="options__input"
+                  type="radio"
+                  name="option"
+                  value=""
+                />
+                <label for="option-3" class="options__label"></label>
+              </p>
+              <p class="options__option">
+                <input
+                  id="option-4"
+                  class="options__input"
+                  type="radio"
+                  name="option"
+                  value=""
+                />
+                <label for="option-4" class="options__label"></label>
+              </p>
+              <p class="options__option">
+                <input
+                  id="option-5"
+                  class="options__input"
+                  type="radio"
+                  name="option"
+                  value=""
+                />
+                <label for="option-5" class="options__label"></label>
+              </p>
+              <p class="options__option">
+                <input
+                  id="option-6"
+                  class="options__input"
+                  type="radio"
+                  name="option"
+                  value=""
+                />
+                <label for="option-6" class="options__label"></label>
+              </p>
+            </form>
+          </div>
+
+          <div class="answer__description description">
+            <p class="description__info">
+              Listen to the player. Select a bird from the list
+            </p>
+          </div>
+        </div>
+
+        <button type="button" class="next-level-btn" disabled>
+          Next Level
+        </button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <a href="https://github.com/MarinaTripetska" target="_blank">
+        <svg class="footer__icon-svg" width="50" height="50">
+          <use xlink:href="./assets/icons/sprite.svg#icon-github" />
+        </svg>
+      </a>
+      <p>2022</p>
+      <a
+        href="https://rs.school/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="link to RS School"
+      >
+        <svg class="footer__icon-svg" width="50" height="50">
+          <use xlink:href="./assets/icons/sprite.svg#logo-rsschool" />
+        </svg>
+      </a>
+    </footer>
+  </body>
+</html>

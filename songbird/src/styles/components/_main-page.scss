@@ -1,0 +1,82 @@
+.body {
+  color: $white;
+  background: rgb(210, 109, 235);
+  background: url("../assets/images/birds-1.png"),
+    url("../assets/images/stars-sky.png"),
+    linear-gradient(32deg, rgba(210, 109, 235, 1) 0%, rgba(39, 28, 138, 1) 100%);
+  background-repeat: no-repeat;
+  background-position: right, center;
+  background-size: contain;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 0;
+  font-family: "Caveat", cursive;
+  font-weight: 400;
+}
+.main {
+  @extend %container;
+  display: flex;
+  justify-content: center;
+
+  &__thumb {
+    position: relative;
+    padding: 75px 30px;
+
+    max-width: 600px;
+    min-height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 90px;
+    border-radius: 20px;
+
+    border: 2px solid rgba(255, 204, 2, 0.798);
+    background-color: rgba(138, 137, 137, 0.479);
+    @media (max-width: 768px) {
+      gap: 50px;
+    }
+  }
+
+  &__title {
+    font-size: 50px;
+    text-shadow: 6px 5px 6px rgba(42, 39, 59, 1);
+  }
+
+  &__desc {
+    font-size: 30px;
+    text-shadow: 6px 5px 6px rgba(42, 39, 59, 1);
+  }
+
+  &__btn-thumb {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
+
+  &__button {
+    @extend %button;
+    width: 100%;
+    max-width: 210px;
+  }
+}
+
+.i18n {
+  position: absolute;
+  right: 15px;
+  top: -25px;
+
+  &__btn {
+    font-family: Anybody, cursive;
+    font-size: 16px;
+    font-weight: 700;
+    color: $white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}
